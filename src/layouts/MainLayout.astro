@@ -1,0 +1,33 @@
+---
+import NavBar from '@/components/home/NavBar.astro';
+import Footer from '@/components/home/Footer.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-slate-300 h-screen">
+		<main class="container mx-auto">
+      <NavBar />
+    <section class=" bg-slate-400 mt-2 p-4">
+      
+      <slot />
+      
+
+    </section>
+    <Footer />
+    </main>
+    <script src="../../node_modules/flyonui/flyonui.js"></script>
+  </body>
+</html>
