@@ -17,10 +17,12 @@ export const onRequest = defineMiddleware(
     locals.user = null;
     locals.isAdmin = false; */
 
+    console.log(session)
     if (user) {
       locals.user= {
         name: user.name!,
        email: user.email!,
+       image: user.image!
       }
       //locals.isAdmin = user.role === 'admin';
 

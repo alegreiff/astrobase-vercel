@@ -10,6 +10,7 @@ declare namespace App {
 interface User {
   email: string;
   name: string;
+  image: string;
   
   //avatar: string;
   //emailVerified: boolean;

@@ -1,3 +1,9 @@
+---
+import {getSession} from 'auth-astro/server';
+const session = await getSession(Astro.request);
+import {SignIn, SignOut} from 'auth-astro/components';
+
+---
 <nav class="navbar rounded-box flex w-full gap-2 shadow max-md:flex-col md:items-center">
   <div class="flex max-md:w-full items-center justify-between">
     <div class="navbar-start items-center justify-between max-md:w-full">
@@ -16,19 +22,27 @@
     <ul class="menu md:menu-horizontal gap-2 p-0 text-base">
       <li><a href="#">Link 1</a></li>
       <li><a href="#">Link 2</a></li>
-      <li class="dropdown relative inline-flex [--auto-close:inside] [--offset:8] [--placement:bottom-end]">
-        <button id="dropdown-link" type="button" class="dropdown-toggle dropdown-open:bg-base-content/10 dropdown-open:text-base-content" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-          Parent
-          <span class="icon-[tabler--chevron-down] dropdown-open:rotate-180 size-4"></span>
-        </button>
-        <ul class="dropdown-menu dropdown-open:opacity-100 hidden" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-link">
-          <li><a class="dropdown-item" href="#">Link 3</a></li>
-          <li><a class="dropdown-item" href="#">Link 4</a></li>
-          <li><a class="dropdown-item" href="#">Link 5</a></li>
-          <hr class="border-base-content/25 -mx-2 my-3" />
-          <li><a class="dropdown-item" href="#">Link 6</a></li>
-        </ul>
-      </li>
+      {session && <SignOut>Salir</SignOut> }
+
+      {session ? 
+       <div class="avatar">
+            <div class="w-10 rounded-full">
+              <img src={session.user.image} alt="">
+            </div>
+          </div>
+
+      
+      : 
+      <SignIn provider="github" >
+        <a class="btn max-sm:btn-square btn-primary" >
+      <span class="max-sm:hidden">Acceder</span>
+      <span class="icon-[tabler--arrow-right]"></span>
+    </a>
+		</SignIn>
+
+    
+    
+      }
     </ul>
   </div>
 </nav>
