@@ -1,13 +1,32 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 
+import {SignIn, SignOut} from 'auth-astro/components';
+import {getSession} from 'auth-astro/server';
 
+const {user} = Astro.locals
+
+const session = await getSession(Astro.request);
 ---
 
 <MainLayout title="Home">
-	<h1>INICIO</h1>
-	<ul>
-		<li>instalado auth</li>
-		<li>instalado vercel</li>
-	</ul>
+	
+		<SignIn provider="github" class="btn btn-alert">
+			Acceder con Github
+		</SignIn>
+
+		<pre>
+			<code>
+				{ JSON.stringify(session, null, 2) }
+			</code>
+		</pre>
+
+<SignOut class="btn btn-warning">
+		salir
+</SignOut> 
+<pre>
+	<code>
+		{ JSON.stringify(user, null, 2) }
+	</code>
+</pre>
 </MainLayout>

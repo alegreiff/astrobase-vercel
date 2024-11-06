@@ -28,7 +28,7 @@ const $$MainLayout = createComponent(($$result, $$props, $$slots) => {
 }, "/Users/alegreiff/Documents/desarrollo/ASTRO/noviembre/authvercel/src/layouts/MainLayout.astro", void 0);
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, { "title": "Home" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<h1>Home</h1> <ul> <li>instalado auth</li> <li>instalado vercel</li> </ul> ` })}`;
+  return renderTemplate`${renderComponent($$result, "MainLayout", $$MainLayout, { "title": "Home" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<h1>INICIO</h1> <ul> <li>instalado auth</li> <li>instalado vercel</li> </ul> ` })}`;
 }, "/Users/alegreiff/Documents/desarrollo/ASTRO/noviembre/authvercel/src/pages/index.astro", void 0);
 
 const $$file = "/Users/alegreiff/Documents/desarrollo/ASTRO/noviembre/authvercel/src/pages/index.astro";
